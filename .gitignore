@@ -1,0 +1,7 @@
+dotfiles/.config/google-chrome
+dotfiles/.config/google-chrome/*
+dotfiles/.config/htop
+dotfiles/.config/htop/*
+*.swp
+bundle
+plugged

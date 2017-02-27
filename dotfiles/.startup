@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bash .fehbg
+VBoxClient-all
+urxvt &

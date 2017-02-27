@@ -1,0 +1,22 @@
+URxvt.depth:           32
+URxvt*background:      rgba:1b00/1d00/1e00/ff00
+
+/* Transparency */
+URxvt*transparent:     true
+URxvt*shading:         8
+
+/* Terminal */
+URxvt.saveLines:       65535
+URxvt.scrollBar:       false
+
+/* Font */
+URxvt*foreground:      White
+URxvt*font:            -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+URxvt*dynamicColors:   on
+#URxvt*font:            -*-clean-medium-r-normal--13-130-75-75-c-80-*-irv
+#URxvt*font:            xft:Tewi:pixelsize=11:antialias=false:hinting=true
+#URxvt*boldFont:        xft:Tewi-bold:pixelsize=11:antialias=false:hinting=true
+
+/* irssi */
+URxvt*cutchars:        "`\"'&()*,;<=>?@[]{|}.:+-"
+#$URxvt*url-launcher: /usr/bin/google-chrome-stable

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+timer=0
+
+if [ -z $1 ]; then
+    timer=0
+fi
+
+sudo shutdown -Ph $timer

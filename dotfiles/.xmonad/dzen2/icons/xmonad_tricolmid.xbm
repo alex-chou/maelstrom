@@ -1,0 +1,4 @@
+#define tricolmid_width 8
+#define tricolmid_height 8
+static unsigned char tricolmid_bits[] = {
+   0xbd, 0xbd, 0xbd, 0xbd, 0xbd, 0xbd, 0xbd, 0xbd};

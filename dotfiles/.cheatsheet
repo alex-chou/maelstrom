@@ -1,0 +1,11 @@
+# # # # # # # #
+# cheatsheet! #
+# # # # # # # #
+
+# internet
+sudo ifup [ wlan0 | eth0 ]
+sudo ifdown [ wlan0 | eth0 ]
+
+# alias for zshell
+vi ~/.zshrc
+

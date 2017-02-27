@@ -1,0 +1,158 @@
+# # # # # # # # #
+# bspwm hotkeys #
+# # # # # # # # #
+
+# # # # # #
+# windows #
+# # # # # #
+
+# close the curr win
+super + w
+	bspc window -c
+
+# s: mk floating; again for tile
+# f: mk fullscreen; again for tile
+# float -> full okay; full -> float not okay
+super + {s,f}
+	bspc window -t {floating,fullscreen}
+
+# kill curr win
+super + alt + w
+    bspc window -k
+
+# swap spot w/ last win
+super + apostrophe
+	bspc window -s last
+
+super + y
+	bspc window -w last.manual
+
+# swap with largest win
+super + m
+	bspc window -s biggest
+
+# shift: swap win
+# no shift: switch b/t wins
+alt + {_,shift + }{h,j,k,l}
+	bspc window -{f,s} {left,down,up,right}
+
+# shift: next win
+# no shift: prev win
+super + {_,shift + }n
+	bspc window -f {next,prev}
+
+super + ctrl + {h,j,k,l}
+	bspc window -p {left,down,up,right}
+
+super + ctrl + {_,shift + }space
+	bspc {window -p cancel,desktop -c}
+
+alt + s + {h,j,k,l}
+	bspc window -e {left -10,down +10,up -10,right +10}
+
+alt + shift + s + {h,j,k,l}
+	bspc window -e {right -10,up +10,down -10,left +10}
+
+super + ctrl + {1-9}
+	bspc window -r 0.{1-9}
+
+super + {o,i}
+	bspc control --record-history off; \
+	bspc window {older,newer} -f; \
+	bspc control --record-history on
+
+super + shift + {w,a,s,d}
+    bspc window --presel {up, left, down, right}
+
+# # # # # # # # # # #
+# desktop | windows #
+# # # # # # # # # # #
+
+# move to desktop {1-10}
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,window -d} ^{1-9,10}
+
+# '-f last': swap b/t last win | desktop
+super + {grave,Tab}
+	bspc {window,desktop} -f last
+
+# # # # # #
+# desktop #
+# # # # # #
+
+# swap desktop b/t mono & tile
+super + t
+	bspc desktop -l next
+
+# '-B': make wins 'balanced'
+super + b
+	bspc desktop -B
+
+# circulate leaves of win tree
+super + {comma,period}
+	bspc desktop -C {backward,forward}
+
+# move b/t desktop
+super + {arrowLeft,arrowRight}
+	bspc desktop -f {prev,next}
+
+# # # # # #
+# pointer #
+# # # # # #
+
+# left click focus
+~button1
+	bspc pointer -g focus
+
+# left clck: move win
+# mid clck: resize one dir
+# right clck: reize two dir [corner]
+super + button{1-3}
+	bspc pointer -g {move,resize_side,resize_corner}
+
+# pass ptr coord for root actn
+super + !button{1-3}
+	bspc pointer -t %i %i
+
+# end curr actn
+super + @button{1-3}
+	bspc pointer -u
+
+# # # # # # #
+# new progs #
+# # # # # # #
+
+# open term
+super + Return
+	urxvt
+
+#super + shift + r
+#    urxvt && bspc window -t floating
+
+#super + space
+#	dmenu_run
+
+# open private ff
+super + o
+    firefox
+
+# open incognito chrome
+super + shift + i
+    google-chrome --incognito && bspc window -t fullscreen
+
+# # # # # # #
+# sys stuff #
+# # # # # # #
+
+# change wallpaper
+super + p
+    ~/dreamspace/maelstrom/wp/wp change
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR2 -x sxhkd
+
+# exit bspwm
+super + shift + q
+	bspc quit
+

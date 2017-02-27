@@ -1,0 +1,86 @@
+"
+" Vim-Plug Configs
+" Installation: https://github.com/junegunn/vim-plug#installation
+"
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'fholgado/minibufexpl.vim'
+call plug#end()
+
+"
+" Key Mappings
+"
+    " set <leader> to be space key
+    let mapleader=" "
+
+    " reload vim configuration
+    map <Leader>s :source ~/.vimrc<CR>
+
+    " move to left, down, up, right buffers
+    map <C-h> <C-W>h
+    map <C-j> <C-W>j
+    map <C-k> <C-W>k
+    map <C-l> <C-W>l
+
+    " toggle NERDTree on and off
+    map <C-n> :NERDTreeToggle<CR>
+
+"
+" Wrap Configs
+"
+    " allow specified keys to move the cursor move to the next line
+    set whichwrap+=<,>,h,l
+    set wrap
+
+"
+" Tab Configs
+"
+    set tabstop=4 " # of columns for \\t
+    set shiftwidth=4 " # of spaces for tab
+    set softtabstop=4
+    set expandtab
+    set smartindent
+
+"
+" Search Configs
+"
+    set hlsearch " turn on highlight search
+    set incsearch " incrementally highlights as searching
+    set magic
+
+    " get rid of highlighting for a search
+    nnoremap <silent> <Leader><Esc> :nohl<CR>
+
+"
+" Misc Configs
+"
+    filetype indent plugin on
+    syntax on
+    colorscheme Tomorrow-Night
+
+    set number
+    set colorcolumn=80
+    set hidden
+    set history=250
+    set showmatch
+    set backspace=indent,eol,start
+
+    " splits new verticle split to the right and new horizontal to the bottom
+    set splitbelow splitright
+
+"
+" Go Configs
+"
+    autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=0 noexpandtab
+
+"
+" C Configs
+"
+    autocmd FileType c setlocal shiftwidth=2 tabstop=2 softtabstop=0
+
+" removes trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
